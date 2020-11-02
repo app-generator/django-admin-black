@@ -1,4 +1,4 @@
-{% load i18n static creative %}
+{% load i18n static admin_black %}
 
 {% if user.is_active and user.is_staff or has_permission %}
     <div class="sidebar">
@@ -14,7 +14,7 @@
                     </a>
                 </li>
 
-                {% creative_get_menu as app_list %}
+                {% admin_black_get_menu as app_list %}
                 {% if app_list %}
                     {% for app in app_list %}
                         {% if app.has_perms and not app.pinned %}
@@ -25,7 +25,7 @@
                                                                       data-popup-section-class="sidebar-popup-section-{{ app.app_label }}"
                                                                       data-order="{{ forloop.counter }}"
                                         {% if app.url_blank %} target="_blank"{% endif %}>
-                                    <i class="tim-icons {{ app.icon }}"></i>
+                                    <i class="{{ app.icon }}"></i>
                                     <p>
                                         {{ app.label }}
                                         {% if app.models %}

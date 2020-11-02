@@ -1,7 +1,7 @@
 import re
 from django import template
 
-from creative.utils import get_menu_items
+from admin_black.utils import get_menu_items
 
 register = template.Library()
 assignment_tag = register.assignment_tag if hasattr(register, 'assignment_tag') else register.simple_tag
@@ -20,7 +20,7 @@ def checkbox(value):
 
 
 @assignment_tag(takes_context=True)
-def creative_get_menu(context):
+def admin_black_get_menu(context):
     return get_menu_items(context)
 
 
@@ -43,13 +43,13 @@ def get_direction(context):
 
 
 @assignment_tag(takes_context=True)
-def get_creative_setting(context):
+def get_admin_black_setting(context):
     user = context.get('request').user
-    creative_setting = user.creative_setting if hasattr(user, 'creative_setting') else None
+    admin_black_setting = user.admin_black_setting if hasattr(user, 'admin_black_setting') else None
     res = {
-        'sidebar_background': creative_setting.sidebar_background if creative_setting else 'primary',
-        'dark_mode': creative_setting.dark_mode if creative_setting else True,
-        'input_bg_color': '#ffffff' if creative_setting and not creative_setting.dark_mode else '#27293c'
+        'sidebar_background': admin_black_setting.sidebar_background if admin_black_setting else 'primary',
+        'dark_mode': admin_black_setting.dark_mode if admin_black_setting else True,
+        'input_bg_color': '#ffffff' if admin_black_setting and not admin_black_setting.dark_mode else '#27293c'
     }
 
     return res

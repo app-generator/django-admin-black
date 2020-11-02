@@ -1,4 +1,4 @@
-<div class="fixed-plugin" id="CreativeSetting" data-url="{% url 'admin:creative_setting' %}">
+<div class="fixed-plugin" id="AdminBlackSetting" data-url="{% url 'admin:admin_black_setting' %}">
     <div class="dropdown show-dropdown">
         <a href="#" data-toggle="dropdown">
             <i class="fa fa-cog fa-2x"> </i>
@@ -8,9 +8,9 @@
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors text-center">
-                        <span class="badge filter badge-primary{% if creative_setting.sidebar_background == 'primary' %} active{% endif %}" data-color="primary"></span>
-                        <span class="badge filter badge-info{% if creative_setting.sidebar_background == 'blue' %} active{% endif %}" data-color="blue"></span>
-                        <span class="badge filter badge-success{% if creative_setting.sidebar_background == 'green' %} active{% endif %}" data-color="green"></span>
+                        <span class="badge filter badge-primary{% if admin_black_setting.sidebar_background == 'primary' %} active{% endif %}" data-color="primary"></span>
+                        <span class="badge filter badge-info{% if admin_black_setting.sidebar_background == 'blue' %} active{% endif %}" data-color="blue"></span>
+                        <span class="badge filter badge-success{% if admin_black_setting.sidebar_background == 'green' %} active{% endif %}" data-color="green"></span>
                     </div>
                     <div class="clearfix"></div>
                 </a>

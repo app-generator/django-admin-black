@@ -36,7 +36,7 @@ except ImportError:
 
 
 default_apps_icon = {
-    'auth': 'icon-single-02'
+    'auth': 'tim-icons icon-single-02'
 }
 
 
@@ -67,6 +67,7 @@ def get_app_list(context, order=True):
 
     app_dict = {}
     for model, model_admin in admin_site._registry.items():
+
         app_icon = model._meta.app_config.icon if hasattr(model._meta.app_config, 'icon') else None
         app_label = model._meta.app_label
         try:

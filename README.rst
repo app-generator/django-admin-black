@@ -11,6 +11,7 @@ Why Django Admin Black?
 * Responsive mobile interface
 * Useful admin home page
 * Minimal template overriding
+* Support RTL and LTR template
 * Easy integration
 
 Screenshots
@@ -28,17 +29,17 @@ Installation
 
 .. code:: python
 
-    pip install git+https://github.com/imankarimi/django-creative.git
+    pip install git+https://github.com/app-generator/django-admin-black.git
     # or
-    easy_install git+https://github.com/imankarimi/django-creative.git
+    easy_install git+https://github.com/app-generator/django-admin-black.git
 
-* Add 'creative' application to the INSTALLED_APPS setting of your Django project settings.py file (note it should be before 'django.contrib.admin'):
+* Add 'admin_black' application to the INSTALLED_APPS setting of your Django project settings.py file (note it should be before 'django.contrib.admin'):
 
 .. code:: python
 
     INSTALLED_APPS = (
         ...
-        'creative',
+        'admin_black.apps.AdminBlackConfig',
         'django.contrib.admin',
     )
 
@@ -76,7 +77,7 @@ Installation
 
 .. code:: python
 
-    python manage.py migrate creative
+    python manage.py migrate admin_black
     # or 
     python manage.py syncdb
         

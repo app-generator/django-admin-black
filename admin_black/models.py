@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
 
 
-class CreativeSetting(models.Model):
-    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='creative_setting')
+class AdminBlackSetting(models.Model):
+    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='admin_black_setting')
     sidebar_background = models.CharField(_('sidebar background'), max_length=20, default='primary')
     dark_mode = models.BooleanField(_('dark mode'), default=True)
     created_at = models.DateTimeField(_("created at"), auto_now_add=True)

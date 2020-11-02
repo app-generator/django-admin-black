@@ -88,7 +88,7 @@ $(document).ready(function () {
             ChangeSidBarBackground(new_color);
 
             // update dashboard setting
-            AjaxUpdateCreativeSetting({'sidebar_background': new_color});
+            AjaxUpdateAdminBlackSetting({'sidebar_background': new_color});
         });
 
         $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
@@ -143,13 +143,13 @@ $(document).ready(function () {
             $('body').addClass('white-content');
             $('select').attr('style', 'background-color:#ffffff;');
             // update dashboard setting
-            AjaxUpdateCreativeSetting({'dark_mode': 0});
+            AjaxUpdateAdminBlackSetting({'dark_mode': 0});
         });
         $('.dark-badge').click(function () {
             $('body').removeClass('white-content');
             $('select').attr('style', 'background-color:#27293c;');
             // update dashboard setting
-            AjaxUpdateCreativeSetting({'dark_mode': 1});
+            AjaxUpdateAdminBlackSetting({'dark_mode': 1});
         });
     });
 
@@ -178,8 +178,8 @@ function ChangeSidBarBackground(new_color) {
         $sidebar_responsive.attr('data', new_color);
 }
 
-function AjaxUpdateCreativeSetting(form_data) {
-    var setting_url = $('#CreativeSetting').data('url');
+function AjaxUpdateAdminBlackSetting(form_data) {
+    var setting_url = $('#AdminBlackSetting').data('url');
 
     $.ajax({
         url: setting_url,

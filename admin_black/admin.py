@@ -5,13 +5,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 from django.views.decorators.csrf import csrf_exempt
 
-from creative.models import CreativeSetting
+from admin_black.models import AdminBlackSetting
 
 
 class CustomUserAdmin(UserAdmin):
     def get_urls(self):
         urls = [
-                   path('creative-setting/', self.admin_site.admin_view(self.setting), name='creative_setting'),
+                   path('admin_black-setting/', self.admin_site.admin_view(self.setting), name='admin_black_setting'),
                ] + super().get_urls()
         return urls
 
@@ -29,7 +29,7 @@ class CustomUserAdmin(UserAdmin):
             if dark_mode:
                 params['dark_mode'] = bool(int(dark_mode))
 
-            CreativeSetting.objects.update_or_create(user=user, defaults=params)
+            AdminBlackSetting.objects.update_or_create(user=user, defaults=params)
 
         return JsonResponse({'valid': True})
 
