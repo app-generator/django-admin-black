@@ -1,0 +1,96 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+{% load creative %}
+
+{% block content %}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header {{ direction.panel }}">
+                        <h5 class="title">{% trans 'Log in' %}</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ app_path }}" method="post" id="login-form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-10 pr-md-5">
+                                    <div class="form-group {{ direction.panel }}">
+                                        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                                        <input type="text" name="{{ form.username.name }}" class="form-control"
+                                               placeholder="{{ form.username.label }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 pr-md-5">
+                                    <div class="form-group {{ direction.panel }}">
+                                        <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                                        <input type="password" name="{{ form.password.name }}" class="form-control"
+                                               placeholder="{{ form.password.label }}">
+                                        <input type="hidden" name="next" value="{{ next }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-10 pr-md-5">
+                                    <div class="form-group {{ direction.panel }}">
+                                        {% url 'admin_password_reset' as password_reset_url %}
+                                        {% if password_reset_url %}
+                                            <div class="password-reset-link">
+                                                <a href="{{ password_reset_url }}">
+                                                    {% trans 'Forgotten your password or username?' %}
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-7 pr-md-5">
+                                    <div class="card-footer">
+                                        <button type="submit"
+                                                class="btn btn-fill btn-primary">{% trans 'Log in' %}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrascript %}
+    <script type="application/javascript">
+        {% if form.username.errors %}
+            notification.danger("<p class='{{ direction.panel }}'>" + "{{ form.username.errors }}" + "</p>", 'top', '{{ direction.notify }}');
+        {% endif %}
+        {% if form.password.errors %}
+            notification.danger("<p class='{{ direction.panel }}'>" + "{{ form.password.errors }}" + "</p>", 'top', '{{ direction.notify }}');
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            var msg = "You are authenticated as {{ username }}, but are not authorized to " +
+                "access this page.Would you like to login to a different account ?"
+            notification.warning("<p class='{{ direction.panel }}'>" + msg + "</p>", 'top', '{{ direction.notify }}');
+        {% endif %}
+
+        {% if form.errors and not form.non_field_errors %}
+            {% if form.errors.items|length == 1 %}
+                notification.warning("<p class='{{ direction.panel }}'>" + "{% trans "Please correct the error below." %}" + "</p>", 'top', '{{ direction.notify }}');
+            {% else %}
+                notification.warning("<p class='{{ direction.panel }}'>" + "{% trans "Please correct the errors below." %}" + "</p>", 'top', '{{ direction.notify }}');
+            {% endif %}
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                notification.warning("<p class='{{ direction.panel }}'>" + "{{ error|clean_text }}" + "</p>", 'top', '{{ direction.notify }}');
+            {% endfor %}
+        {% endif %}
+    </script>
+{% endblock %}

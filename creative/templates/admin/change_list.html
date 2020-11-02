@@ -1,0 +1,107 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}">
+    {% if cl.formset %}
+        <link rel="stylesheet" type="text/css" href="{% if LANGUAGE_BIDI %}{% static "admin/css/forms_rtl.css" %}{% else %}{% static "admin/css/forms.css" %}{% endif %}">
+    {% endif %}
+    {% if cl.formset or action_form %}
+        <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+    {% endif %}
+    {{ media.css }}
+    {% if not actions_on_top and not actions_on_bottom %}
+        <style>
+            #changelist table thead th:first-child {
+                width: inherit
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {{ media.js }}
+{% endblock %}
+
+{% if not is_popup %}
+    {% block breadcrumbs %}
+        <div class="breadcrumbs{% if LANGUAGE_BIDI %} rbc{% else %} lbc{% endif %}">
+            <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+            &rsaquo; {{ cl.opts.app_config.verbose_name }}
+            &rsaquo; {{ cl.opts.verbose_name_plural|capfirst }}
+        </div>
+    {% endblock %}
+{% endif %}
+
+{% block content %}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header {{ direction.reverse_panel }}">
+                        <ul class="object-tools">
+                            {% block object-tools-items %}
+                                {% change_list_object_tools %}
+                            {% endblock %}
+                        </ul>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="{% if cl.has_filters %}col-md-10{% else %}col-md-12{% endif %}">
+                                <div class="card">
+                                    <div class="card-body">
+                                        {% block search %}{% search_form cl %}{% endblock %}
+                                        {% block date_hierarchy %}
+                                            {% if cl.date_hierarchy %}{% date_hierarchy cl %}{% endif %}
+                                        {% endblock %}
+
+                                        <form id="changelist-form" method="post"
+                                                {% if cl.formset and cl.formset.is_multipart %}
+                                              enctype="multipart/form-data"{% endif %} novalidate>{% csrf_token %}
+                                            {% if cl.formset %}
+                                                <div>{{ cl.formset.management_form }}</div>
+                                            {% endif %}
+                                            {% block result_list %}
+                                                {% if action_form and actions_on_top and cl.show_admin_actions %}
+                                                    {% admin_actions %}
+                                                {% endif %}
+
+                                                {% result_list cl %}
+
+                                                {% if action_form and actions_on_bottom and cl.show_admin_actions %}
+                                                    {% admin_actions %}
+                                                {% endif %}
+                                            {% endblock %}
+
+                                            {% block pagination %}{% pagination cl %}{% endblock %}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                {% block filters %}
+                                    {% if cl.has_filters %}
+                                        <div class="card filter_card {{ direction.panel }} {% if LANGUAGE_BIDI %}lfp{% else %}rfp{% endif %}">
+                                            <div class="card-header filter_card_header">
+                                                <h4>{% trans 'Filter' %}</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                {% for spec in cl.filter_specs %}
+                                                    {% admin_list_filter cl spec %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endblock %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

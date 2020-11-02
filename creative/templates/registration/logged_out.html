@@ -1,0 +1,31 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header {{ direction.panel }}">
+                        <h5 class="title">{% trans 'Log in' %}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7 pr-md-5">
+                                <div class="card-footer">
+                                    <a href="{% url 'admin:index' %}" class="btn btn-fill btn-primary">{% trans 'Log in again' %}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrascript %}
+    <script type="application/javascript">
+        notification.info("<p class='{{ direction.panel }}'>" + "{% trans "Thanks for spending some quality time with the Web site today." %}" + "</p>", 'top', '{{ direction.notify }}');
+    </script>
+{% endblock %}

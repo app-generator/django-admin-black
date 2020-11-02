@@ -1,0 +1,60 @@
+{% load i18n static creative %}
+
+{% if user.is_active and user.is_staff or has_permission %}
+    <div class="sidebar">
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="{% url 'admin:index' %}" class="simple-text logo-normal">{% trans 'Administrator' %}</a>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a href="{% url 'admin:index' %}">
+                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <p>{% trans 'Dashboard' %}</p>
+                    </a>
+                </li>
+
+                {% creative_get_menu as app_list %}
+                {% if app_list %}
+                    {% for app in app_list %}
+                        {% if app.has_perms and not app.pinned %}
+                            <li>
+                                <a{% if not app.models and app.url %} href="{{ app.url }}"{% endif %}
+                                                                      class="navbar-btn sidebar-link popup-section-link app-item"
+                                                                      data-app-label="{{ app.app_label }}"
+                                                                      data-popup-section-class="sidebar-popup-section-{{ app.app_label }}"
+                                                                      data-order="{{ forloop.counter }}"
+                                        {% if app.url_blank %} target="_blank"{% endif %}>
+                                    <i class="tim-icons {{ app.icon }}"></i>
+                                    <p>
+                                        {{ app.label }}
+                                        {% if app.models %}
+                                            <span class="tim-icons icon-minimal-down m-2"></span>
+                                        {% endif %}
+                                    </p>
+                                </a>
+
+                                {% if app.models %}
+                                    <ul class="navbar-dropdown">
+                                        {% for model in app.models %}
+                                            {% if model.url %}
+                                                <li class="{{ direction.panel }}">
+                                                    <a href="{{ model.url }}">
+                                                        <span>{{ model.label }}</span>
+                                                        <span class="tim-icons icon-minimal-{{ direction.notify }}"></span>
+                                                    </a>
+                                                </li>
+                                            {% else %}
+                                                <li>{{ model.label }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

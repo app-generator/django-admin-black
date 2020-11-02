@@ -1,0 +1,280 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-6 {{ direction.panel }}">
+                                <h5 class="card-category">{% trans "Total Shipments" %}</h5>
+                                <h2 class="card-title">{% trans "Performance" %}</h2>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="btn-group btn-group-toggle {{ direction.float }}" data-toggle="buttons">
+                                    <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                                        <input type="radio" name="options" checked>
+                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">{% trans "Accounts" %}</span>
+                                        <span class="d-block d-sm-none">
+                                  <i class="tim-icons icon-single-02"></i>
+                                </span>
+                                    </label>
+                                    <label class="btn btn-sm btn-primary btn-simple" id="1">
+                                        <input type="radio" class="d-none d-sm-none" name="options">
+                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">{% trans "Purchases" %}</span>
+                                        <span class="d-block d-sm-none">
+                                  <i class="tim-icons icon-gift-2"></i>
+                                </span>
+                                    </label>
+                                    <label class="btn btn-sm btn-primary btn-simple" id="2">
+                                        <input type="radio" class="d-none" name="options">
+                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">{% trans "Sessions" %}</span>
+                                        <span class="d-block d-sm-none">
+                                  <i class="tim-icons icon-tap-02"></i>
+                                </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartBig1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 {{ direction.panel }}">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">{% trans "Total Shipments" %}</h5>
+                        <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartLinePurple"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 {{ direction.panel }}">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">{% trans "Daily Sales" %}</h5>
+                        <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="CountryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 {{ direction.panel }}">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">{% trans "Completed Tasks" %}</h5>
+                        <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartLineGreen"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 text-center">
+                <div class="card card-tasks {{ direction.reverse_panel }}">
+                    <div class="card-header {{ direction.panel }}">
+                        <h6 class="title d-inline">{% trans 'Recent actions' %}</h6>
+                        <p class="card-category d-inline">{% trans 'My actions' %}</p>
+                        {% load log %}
+                        {% get_admin_log 10 as admin_log for_user user %}
+                    </div>
+                    <div class="card-body">
+                        {% if admin_log %}
+                            <div class="table-full-width table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                    {% for entry in admin_log %}
+                                        <tr>
+                                            <td class="text-center">
+                                                {% if entry.is_addition %}
+                                                    <span class="fa fa-plus-circle text-success"></span>
+                                                {% endif %}
+                                                {% if entry.is_change %}
+                                                    <span class="fa fa-edit text-warning"></span>
+                                                {% endif %}
+                                                {% if entry.is_deletion %}
+                                                    <span class="fa fa-trash text-danger"></span>
+                                                {% endif %}
+                                            </td>
+                                            <td class="{{ direction.panel }}">
+                                                <p class="title">{{ entry.object_repr }}</p>
+                                                {% if entry.content_type %}
+                                                    <p class="text-muted">
+                                                        {% filter capfirst %}{{ entry.content_type }}{% endfilter %}</p>
+                                                {% else %}
+                                                    <p class="text-muted">{% trans 'Unknown content' %}</p>
+                                                {% endif %}
+                                            </td>
+                                            <td class="td-actions">
+                                                <a href="{{ entry.get_admin_url }}" type="button" rel="tooltip" title=""
+                                                   class="btn btn-link"
+                                                   data-original-title="{{ entry.object_repr }}">
+                                                    <i class="tim-icons icon-settings"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <p>{% trans 'None available' %}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="card ">
+                    <div class="card-header {{ direction.panel }}">
+                        <h4 class="card-title">{% trans "Simple Table" %}</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table tablesorter " id="">
+                                <thead class="text-primary">
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th>
+                                        City
+                                    </th>
+                                    <th class="text-center">
+                                        Salary
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        Dakota Rice
+                                    </td>
+                                    <td>
+                                        Niger
+                                    </td>
+                                    <td>
+                                        Oud-Turnhout
+                                    </td>
+                                    <td class="text-center">
+                                        $36,738
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Minerva Hooper
+                                    </td>
+                                    <td>
+                                        Curaçao
+                                    </td>
+                                    <td>
+                                        Sinaai-Waas
+                                    </td>
+                                    <td class="text-center">
+                                        $23,789
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Sage Rodriguez
+                                    </td>
+                                    <td>
+                                        Netherlands
+                                    </td>
+                                    <td>
+                                        Baileux
+                                    </td>
+                                    <td class="text-center">
+                                        $56,142
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Philip Chaney
+                                    </td>
+                                    <td>
+                                        Korea, South
+                                    </td>
+                                    <td>
+                                        Overland Park
+                                    </td>
+                                    <td class="text-center">
+                                        $38,735
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Doris Greene
+                                    </td>
+                                    <td>
+                                        Malawi
+                                    </td>
+                                    <td>
+                                        Feldkirchen in Kärnten
+                                    </td>
+                                    <td class="text-center">
+                                        $63,542
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Mason Porter
+                                    </td>
+                                    <td>
+                                        Chile
+                                    </td>
+                                    <td>
+                                        Gloucester
+                                    </td>
+                                    <td class="text-center">
+                                        $78,615
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Jon Porter
+                                    </td>
+                                    <td>
+                                        Portugal
+                                    </td>
+                                    <td>
+                                        Gloucester
+                                    </td>
+                                    <td class="text-center">
+                                        $98,615
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrascript %}{% endblock %}

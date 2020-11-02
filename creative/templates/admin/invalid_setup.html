@@ -1,0 +1,42 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs{% if LANGUAGE_BIDI %} rbc{% else %} lbc{% endif %}">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        &rsaquo; {{ title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header {{ direction.panel }}">
+                        <h5 class="title">
+                            {% trans "Something's wrong with your database installation. Make sure the appropriate database tables have been created, and make sure the database is readable by the appropriate user." %}
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7 pr-md-5">
+                                <div class="card-footer">
+                                    <a href="{% url 'admin:index' %}" class="btn btn-fill btn-primary">
+                                        <i class="fa fa-home"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrascript %}
+    <script type="application/javascript">
+        notification.info("<p class='{{ direction.panel }}'>" + "{% trans "Something's wrong with your database installation. Make sure the appropriate database tables have been created, and make sure the database is readable by the appropriate user." %}" + "</p>", 'top', '{{ direction.notify }}');
+    </script>
+{% endblock %}

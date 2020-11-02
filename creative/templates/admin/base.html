@@ -1,0 +1,128 @@
+{% load i18n static creative %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_direction as direction %}
+{% get_creative_setting as creative_setting %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "creative/assets/img/apple-icon.png" %}">
+    <link rel="icon" type="image/png" href="{% static "creative/assets/img/favicon.png" %}">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+{#    <link href="{% static "admin/css/responsive.css" %}" rel="stylesheet"/>#}
+
+    {% if LANGUAGE_BIDI %}
+{#        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" rel="stylesheet"/>#}
+{#        <link href="https://lib.arvancloud.com/ar/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" rel="stylesheet"/>#}
+        <link href="{% static "creative/assets/css/bootstrap-rtl.css" %}" rel="stylesheet"/>
+{#        <link href="{% static "admin/css/responsive_rtl.css" %}" rel="stylesheet"/>#}
+    {% endif %}
+
+    <link href="{% static "creative/assets/css/nucleo-icons.css" %}" rel="stylesheet"/>
+    <link href="{% static "creative/assets/css/black-dashboard.css" %}" rel="stylesheet"/>
+    <link href="{% static "creative/assets/demo/demo.css" %}" rel="stylesheet"/>
+    <link href="{% static "creative/assets/css/styles.css" %}" rel="stylesheet"/>
+
+    {% block extrastyle %}{% endblock %}
+    {% block extrahead %}{% endblock %}
+    {% block blockbots %}
+        <meta name="robots" content="NONE,NOARCHIVE">
+    {% endblock %}
+</head>
+
+<body class="{% if LANGUAGE_BIDI %}rtl menu-on-right{% endif %} {% if not creative_setting.dark_mode %}white-content{% endif %}">
+
+<div class="wrapper">
+    {% include "admin/sidebar.html" %}
+
+    <div class="main-panel">
+        {% if user.is_authenticated %}
+            <!-- Navbar -->
+            {% include "admin/navigation.html" %}
+            <!-- End Navbar -->
+
+            <!-- Breadcrumbs -->
+            {% if not is_popup and user.is_authenticated %}
+                <div class="breadcrumbs_panel">
+                    {% block breadcrumbs %}
+                        <div class="breadcrumbs{% if LANGUAGE_BIDI %} rbc{% else %} lbc{% endif %}">
+                            <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+                            {% if title %} &rsaquo; {{ title }}{% endif %}
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endif %}
+            <!-- End Breadcrumbs -->
+        {% endif %}
+
+        <!-- Content -->
+        {% block content %}{% endblock %}
+        <!-- End Content -->
+
+        {% if user.is_authenticated %}
+            <!-- Sidebar -->
+            {% block sidebar %}{% endblock %}
+            <!-- End Sidebar -->
+        {% endif %}
+
+        <!-- Footer -->
+        {% block footer %}
+            {% include "admin/footer.html" %}
+        {% endblock %}
+        <!-- End Footer -->
+    </div>
+</div>
+
+{% if user.is_authenticated %}
+    {% include "admin/creative_setting.html" %}
+{% endif %}
+
+<!-- Core JS Files -->
+<script src="{% static "creative/assets/js/core/jquery.min.js" %}"></script>
+<script src="{% static "creative/assets/js/core/popper.min.js" %}"></script>
+<script src="{% static "creative/assets/js/core/bootstrap.min.js" %}"></script>
+<script src="{% static "creative/assets/js/plugins/perfect-scrollbar.jquery.min.js" %}"></script>
+<!-- Google Maps Plugin -->
+<!-- Place this tag in your head or just before your close body tag. -->
+{#<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>#}
+<!-- Chart JS -->
+<script src="{% static "creative/assets/js/plugins/chartjs.min.js" %}"></script>
+<!--  Notifications Plugin    -->
+<script src="{% static "creative/assets/js/plugins/bootstrap-notify.js" %}"></script>
+<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="{% static "creative/assets/js/black-dashboard.min.js" %}"></script>
+<!-- Black Dashboard DEMO methods, don't include it in your project! -->
+<script src="{% static "creative/assets/demo/demo.js" %}"></script>
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script src="{% static "creative/assets/js/scripts.js" %}"></script>
+
+<script>
+    {% if messages %}
+        {% for message in messages %}
+            notification['{{ message.tags }}']("<p class='{{ direction.panel }}'>" + '{{ message|capfirst }}' + "</p>", 'top', '{{ direction.notify }}');
+        {% endfor %}
+    {% endif %}
+</script>
+
+<script type="application/javascript">
+    $('select').addClass('form-control');
+    $('select').attr('style', 'background-color:{{ creative_setting.input_bg_color }};');
+    $('input[type="text"]').addClass('form-control');
+    $('input[type="number"]').addClass('form-control');
+    $('input[type="password"]').addClass('form-control');
+    $('input[type="email"]').addClass('form-control');
+    $('textarea').addClass('form-control');
+    ChangeSidBarBackground('{{ creative_setting.sidebar_background }}');
+</script>
+
+{% block extrascript %}{% endblock %}
+</body>
+</html>
