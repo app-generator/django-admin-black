@@ -10,8 +10,8 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{% static "creative/assets/img/apple-icon.png" %}">
-    <link rel="icon" type="image/png" href="{% static "creative/assets/img/favicon.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "admin_black/assets/img/apple-icon.png" %}">
+    <link rel="icon" type="image/png" href="{% static "admin_black/assets/img/favicon.png" %}">
 
     <title>{% block title %}{% endblock %}</title>
 
@@ -22,14 +22,14 @@
     {% if LANGUAGE_BIDI %}
 {#        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" rel="stylesheet"/>#}
 {#        <link href="https://lib.arvancloud.com/ar/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" rel="stylesheet"/>#}
-        <link href="{% static "creative/assets/css/bootstrap-rtl.css" %}" rel="stylesheet"/>
+        <link href="{% static "admin_black/assets/css/bootstrap-rtl.css" %}" rel="stylesheet"/>
 {#        <link href="{% static "admin/css/responsive_rtl.css" %}" rel="stylesheet"/>#}
     {% endif %}
 
-    <link href="{% static "creative/assets/css/nucleo-icons.css" %}" rel="stylesheet"/>
-    <link href="{% static "creative/assets/css/black-dashboard.css" %}" rel="stylesheet"/>
-    <link href="{% static "creative/assets/demo/demo.css" %}" rel="stylesheet"/>
-    <link href="{% static "creative/assets/css/styles.css" %}" rel="stylesheet"/>
+    <link href="{% static "admin_black/assets/css/nucleo-icons.css" %}" rel="stylesheet"/>
+    <link href="{% static "admin_black/assets/css/black-dashboard.css" %}" rel="stylesheet"/>
+    <link href="{% static "admin_black/assets/demo/demo.css" %}" rel="stylesheet"/>
+    <link href="{% static "admin_black/assets/css/styles.css" %}" rel="stylesheet"/>
 
     {% block extrastyle %}{% endblock %}
     {% block extrahead %}{% endblock %}
@@ -86,23 +86,23 @@
 {% endif %}
 
 <!-- Core JS Files -->
-<script src="{% static "creative/assets/js/core/jquery.min.js" %}"></script>
-<script src="{% static "creative/assets/js/core/popper.min.js" %}"></script>
-<script src="{% static "creative/assets/js/core/bootstrap.min.js" %}"></script>
-<script src="{% static "creative/assets/js/plugins/perfect-scrollbar.jquery.min.js" %}"></script>
+<script src="{% static "admin_black/assets/js/core/jquery.min.js" %}"></script>
+<script src="{% static "admin_black/assets/js/core/popper.min.js" %}"></script>
+<script src="{% static "admin_black/assets/js/core/bootstrap.min.js" %}"></script>
+<script src="{% static "admin_black/assets/js/plugins/perfect-scrollbar.jquery.min.js" %}"></script>
 <!-- Google Maps Plugin -->
 <!-- Place this tag in your head or just before your close body tag. -->
 {#<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>#}
 <!-- Chart JS -->
-<script src="{% static "creative/assets/js/plugins/chartjs.min.js" %}"></script>
+<script src="{% static "admin_black/assets/js/plugins/chartjs.min.js" %}"></script>
 <!--  Notifications Plugin    -->
-<script src="{% static "creative/assets/js/plugins/bootstrap-notify.js" %}"></script>
+<script src="{% static "admin_black/assets/js/plugins/bootstrap-notify.js" %}"></script>
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{% static "creative/assets/js/black-dashboard.min.js" %}"></script>
+<script src="{% static "admin_black/assets/js/black-dashboard.min.js" %}"></script>
 <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-<script src="{% static "creative/assets/demo/demo.js" %}"></script>
+<script src="{% static "admin_black/assets/demo/demo.js" %}"></script>
 <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-<script src="{% static "creative/assets/js/scripts.js" %}"></script>
+<script src="{% static "admin_black/assets/js/scripts.js" %}"></script>
 
 <script>
     {% if messages %}
