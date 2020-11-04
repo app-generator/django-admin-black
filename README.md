@@ -9,7 +9,7 @@ For support please use Github (issues tracker) or chat with AppSeed support team
 
 **Links & Resources**
 
-- [Django Black Dashboard](https://appseed.us/admin-dashboards/django-dashboard-black) - Open-source starter that used the same UI
+- [Django Black Dashboard](https://appseed.us/admin-dashboards/django-dashboard-black) - Open-source starter that uses the same UI Kit
 - [Django Black Dashboard - DEMO](https://django-dashboard-black.appseed.us/login/) - LIVE Deployment
 
 <br />
