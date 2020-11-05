@@ -2,8 +2,7 @@
 
 Modern template for **Django admin interface** coded in **Django Framework**
 
-> Originally coded by [Iman Karimi](https://github.com/imankarimi), actively versioned and supported by [AppSeed](https://appseed.us/). 
-For support please use Github (issues tracker) or chat with AppSeed support team on [Discord](https://discord.gg/fZC6hup) - 24/7 LIVE Service.
+> Originally coded by [Iman Karimi](https://github.com/imankarimi), actively versioned and supported by [AppSeed](https://appseed.us/) via Github (issues tracker) and [Discord](https://discord.gg/fZC6hup) - 24/7 LIVE Service.
 
 <br>
 
