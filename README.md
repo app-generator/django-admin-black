@@ -25,9 +25,7 @@ Modern template for **Django admin interface** coded in **Django Framework**
 
 <br />
 
-## Screenshots
-
-![Django Admin Black - Template project provided by AppSeed.](https://raw.githubusercontent.com/app-generator/django-dashboard-black/master/media/django-dashboard-black-screen.png)
+![Django Admin Black - Template project for Django provided by AppSeed.](https://raw.githubusercontent.com/app-generator/django-admin-black/main/media/django-admin-black-intro.gif)
 
 <br>
 
@@ -112,6 +110,20 @@ $ python manage.py collectstatic
 * Clear your browser cache
 
 <br />
+
+## Screenshots
+
+![Django Admin Black - Main Django Dashboard screen.](https://raw.githubusercontent.com/app-generator/django-admin-black/main/media/django-admin-black-screen.png)
+
+<br>
+
+![Django Admin Black - Add user screen.](https://raw.githubusercontent.com/app-generator/django-admin-black/main/media/django-admin-black-screen-add-user.png)
+
+<br>
+
+![Django Admin Black - Edit user permissions.](https://raw.githubusercontent.com/app-generator/django-admin-black/main/media/django-admin-black-screen-edit-permissions.png)
+
+<br>
 
 ---
 **Django Admin Black** - Provided by **[AppSeed](https://appseed.us/)**
