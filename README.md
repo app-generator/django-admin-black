@@ -1,6 +1,6 @@
 # Django Admin Black
 
-Modern template for **Django admin interface** coded in **Django Framework**
+Modern template for **Django admin interface** coded on top of Black Dashboard (free version) from **Creative-Tim**
 
 > Originally coded by [Iman Karimi](https://github.com/imankarimi), actively versioned and supported by [AppSeed](https://appseed.us/) via Github (issues tracker) and [Discord](https://discord.gg/fZC6hup) - 24/7 LIVE Service.
 
