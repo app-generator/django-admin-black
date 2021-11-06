@@ -15,7 +15,7 @@ Modern template for **Django admin interface** coded on top of Black Dashboard (
 
 ## Why Django Admin Black?
 
-- UI Kit: **Black Dashboard** (Free version) provided by **Creative-Tim**
+- UI: **[Black Dashboard](https://bit.ly/2L0W6Z7)** v1.0.1 provided by *Creative-Tim*
 - New fresh look
 - Responsive mobile interface
 - Useful admin home page
@@ -29,13 +29,19 @@ Modern template for **Django admin interface** coded on top of Black Dashboard (
 
 <br>
 
-## Installation
+## How to use it
+
+<br />
+
+> Install the package via `PIP` 
 
 ```bash
+$ pip install django-admin-black
+// OR
 $ pip install git+https://github.com/app-generator/django-admin-black.git
-$ # or
-$ easy_install git+https://github.com/app-generator/django-admin-black.git
 ```
+
+<br />
 
 * Add 'admin_black' application to the INSTALLED_APPS setting of your Django project settings.py file (note it should be before 'django.contrib.admin'):
 
@@ -126,4 +132,4 @@ $ python manage.py collectstatic
 <br>
 
 ---
-**Django Admin Black** - Provided by **[AppSeed](https://appseed.us/)**
+**Django Admin Black** - Provided by **AppSeed [App Generator](https://appseed.us/)**
