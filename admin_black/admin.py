@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import get_user_model
 
 from admin_black.models import AdminBlackSetting
 
@@ -33,6 +34,19 @@ class CustomUserAdmin(UserAdmin):
 
         return JsonResponse({'valid': True})
 
+user_model = get_user_model()
 
-admin.site.unregister(User)
-admin.site.register(User, CustomUserAdmin)
+if  user_model == User: # for default user
+    admin.site.unregister(User)
+    
+elif user_model: # for custom user
+    username = user_model.get_username
+    CustomUserAdmin.list_display = [username]
+    CustomUserAdmin.list_display_links = [username]
+    CustomUserAdmin.list_filter = []
+    CustomUserAdmin.filter_horizontal = []
+    CustomUserAdmin.fieldsets = (
+        (None, {'fields': ('username', )}),
+    )
+    
+admin.site.register(user_model, CustomUserAdmin)
