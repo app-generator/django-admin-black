@@ -4,7 +4,11 @@ Modern template for **Django Admin Interface** coded on top of **Black Dashboard
 
 > Actively supported by [AppSeed](https://appseed.us/) via `Email` and `Discord`.
 
-<br>
+<br />
+
+> UI Kit: https://github.com/app-generator/ct-black-dashboard
+
+<br />
 
 **Links & Resources**
 
