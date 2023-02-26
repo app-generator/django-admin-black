@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.0.3] 2023-02-26
+### Changes
+
+- Update Footer Links (minor)
+
 ## [1.0.2] 2023-02-26
 ### Changes
 

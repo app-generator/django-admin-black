@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/auth_base.html' %}
 {% load i18n static %}
 
 {% block title %} Sign OUT {% endblock %}
@@ -16,7 +16,7 @@
                             </div>
                             <div class="mt-5">
                                 <div class="d-grid mt-3">
-                                    <a href="{% url 'index' %}" class="btn btn-gray-800">{% trans 'Log in again' %}</a>
+                                    <a href="{% url 'admin:index' %}" class="btn btn-gray-800">{% trans 'Log in again' %}</a>
                                 </div>
                             </div>
                         </div>
