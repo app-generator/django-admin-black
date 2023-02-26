@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.0.2] 2023-02-26
+### Changes
+
+- Auth Pages: 
+  - Link SignIN -> SignUP pages
+
 ## [1.0.1] 2023-02-26
 ### Changes
 

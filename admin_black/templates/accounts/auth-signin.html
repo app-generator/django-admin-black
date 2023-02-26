@@ -68,7 +68,10 @@
                                             <span class="form_error">{{ field.errors }}</span>
                                         </div>
 							            {% endfor %}
-                                        <button type="submit" class="btn btn-fill btn-primary">Login</button>
+                                        <button type="submit" class="btn btn-fill btn-primary">Login</button> 
+                                        <span style="margin: 12px !important;">
+                                            Or <a href="{% url 'auth_signup' %}">Register</a>
+                                        </span>                                        
                                     </div>
                                 </form>
                             </div>
