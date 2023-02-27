@@ -1,6 +1,6 @@
 # [Django Admin Black](https://appseed.us/product/black-dashboard/django/)
 
-Modern template for **Django** that covers `Admin Section`, all authentication pages (registration included) crafted on top of **[Black Dashboard](https://appseed.us/product/black-dashboard/django/)**, an open-source `Bootstrap 5` design from `Creative-Tim`.
+Modern template for **Django** that covers `Admin Section`, all authentication pages (registration included) crafted on top of **[Black Dashboard](https://appseed.us/product/black-dashboard/django/)**, an open-source `Bootstrap 5` design from [Creative-Tim](https://www.creative-tim.com/?AFFILIATE=128200).
 
 > Actively supported by [AppSeed](https://appseed.us/) via `Email` and `Discord`.
 
@@ -8,7 +8,7 @@ Modern template for **Django** that covers `Admin Section`, all authentication p
 
 **Links & Resources**
 
-- [Django Admin Black](https://appseed.us/product/black-dashboard/django/) - `Product` that uses the library
+- [Django Black Dashboard](https://appseed.us/product/black-dashboard/django/) - `Product` that uses the library
   - `Features`: Fully-configured, `CI/CD` via Render
 - UI Kit: [Black Dashboard](https://www.creative-tim.com/product/black-dashboard?AFFILIATE=128200) `free version` by Creative-Tim
 - **Sections Covered**: 
