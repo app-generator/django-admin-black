@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.0.5] 2023-02-27
+### Changes
+
+- Fixes:
+  - #10: SignIN - Errors not visible
+  - #11: SuperUser Logout - Looks strange
 
 ## [1.0.4] 2023-02-26
 ### Changes
