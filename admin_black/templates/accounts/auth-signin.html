@@ -57,6 +57,11 @@
                                 <form method="post">
                                     <div class="row">
                                         {% csrf_token %}
+                                        {% if form.non_field_errors %}
+                                        {% for error in form.non_field_errors  %}
+                                        <small class="text-danger mb-3">{{ error }}</small>
+                                        {% endfor %}
+                                        {% endif %}
                                         {% for field in form %}
                                         <div class="col-md-12 px-md-1">
                                             <div class="form-group">
