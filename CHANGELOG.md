@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.0.7] 2023-05-03
+### Changes
+
+- Added Gulp Tooling
+
 ## [1.0.6] 2023-02-27
 ### Changes
 
