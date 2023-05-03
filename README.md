@@ -25,7 +25,7 @@ Modern template for **Django** that covers `Admin Section`, all authentication p
 
 ## Why `Django Black Design`
 
-- Modern [Bootstrap 5](https://www.admin-dashboards.com/bootstrap-5-templates/) Design
+- Modern [Bootstrap](https://www.admin-dashboards.com/bootstrap-5-templates/) Design
 - `Responsive Interface`
 - `Minimal Template` overriding
 - `Easy integration`
