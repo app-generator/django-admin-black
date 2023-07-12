@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.0.8] 2023-07-12
+### Changes
+
+- Fix #13: Check box and select all not working in admin
+
 ## [1.0.7] 2023-05-03
 ### Changes
 

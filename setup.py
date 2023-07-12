@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
 name='django-admin-black',
-version='1.0.7',
+version='1.0.8',
 zip_safe=False,
 packages=find_packages(),
 include_package_data=True,
