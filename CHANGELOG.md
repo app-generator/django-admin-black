@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.0.9] 2024-04-16
+### Changes
+
+- Popular main Dashboard Charts
+
 ## [1.0.8] 2023-07-12
 ### Changes
 
