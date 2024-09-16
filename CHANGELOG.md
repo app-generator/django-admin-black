@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.0.11] 2024-09-16
+### Changes
+
+- Fix Logout 
+
 ## [1.0.10] 2024-09-16
 ### Changes
 
