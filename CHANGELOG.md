@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.0.10] 2024-09-16
+### Changes
+
+- Remove `length_is` filter
+  - Deprecated in Django 5.1
+
 ## [1.0.9] 2024-04-16
 ### Changes
 
