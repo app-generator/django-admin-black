@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.0.13] 2024-11-07
+### Changes (minor)
+
+- Update RM Links
+  - Added [Black Dashboard](https://app-generator.dev/docs/templates/bootstrap/black-dashboard.html) design mention
+
 ## [1.0.12] 2024-11-07
 ### Changes
 

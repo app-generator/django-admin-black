@@ -1,6 +1,6 @@
 # [Django Black Dashboard](https://app-generator.dev/docs/products/django-libs/theme-black-dashboard.html)
 
-Modern template for **Django Admin**, Auth Pages (registration included) crafted on top of **Datta Able Dashboard**, an open-source **Bootstrap** design.
+Modern template for **[Django Admin](https://app-generator.dev/docs/products/django-libs/theme-black-dashboard.htm)**, Auth Pages (registration included) crafted on top of **Black Dashboard**, an open-source **Bootstrap** design.
 
 - [Django Admin Black](https://app-generator.dev/docs/products/django-libs/theme-black-dashboard.html) - Documentation & Support Links
 - [Django Black Dashboard](https://app-generator.dev/product/black-dashboard/django/) - The product that uses the library
@@ -10,7 +10,7 @@ Modern template for **Django Admin**, Auth Pages (registration included) crafted
 
 ## **Features**
 
-- Design: Datta Able (Bootstrap)
+- Design: **[Black Dashboard](https://app-generator.dev/docs/templates/bootstrap/black-dashboard.html)** (Bootstrap)
 - **Sections Covered**: 
   - `Admin Section`, reserved for `superusers`
   - `All pages` managed by `Django.contrib.AUTH`
