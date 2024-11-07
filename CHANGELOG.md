@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.12] 2024-11-07
+### Changes
+
+- Update [Django Admin Black Dashboard - Documentation](https://app-generator.dev/docs/products/django-libs/theme-black-dashboard.html) Link
+- Update [Django Admin Black Dashboard - Sample Product](https://app-generator.dev/product/black-dashboard/django/) Link
+- Added [Getting Started with Django](https://app-generator.dev/docs/technologies/django/index.html) Link
+
 ## [1.0.11] 2024-09-16
 ### Changes
 
