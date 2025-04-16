@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.0.17] 2025-04-12
+### Changes
+
+- Customize Page Titles
+
 ## [1.0.16] 2025-04-12
 ### Changes
 
