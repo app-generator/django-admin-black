@@ -7,7 +7,7 @@
     </a>
   </li>
 
-  {% request.user.is_authenticated %}
+  {% if request.user.is_authenticated %}
   <li>
     <a href="{% url 'logout' %}">
       <i class="tim-icons icon-button-power"></i>
