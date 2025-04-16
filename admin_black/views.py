@@ -51,7 +51,6 @@ def dashboard(request):
   }
     return render(request, 'pages/dashboard.html', context)
 
-@login_required(login_url='/accounts/auth-signin')
 def icons(request):
     context = {
     'parent': 'pages',
@@ -59,7 +58,6 @@ def icons(request):
   }
     return render(request, 'pages/icons.html', context)
 
-@login_required(login_url='/accounts/auth-signin')
 def map(request):
     context = {
     'parent': 'pages',
@@ -67,7 +65,6 @@ def map(request):
   }
     return render(request, 'pages/map.html', context)
 
-@login_required(login_url='/accounts/auth-signin')
 def notifications(request):
     context = {
     'parent': 'pages',
@@ -75,7 +72,6 @@ def notifications(request):
   }
     return render(request, 'pages/notifications.html', context)
 
-@login_required(login_url='/accounts/auth-signin')
 def user_profile(request):
     context = {
     'parent': 'pages',
@@ -83,7 +79,6 @@ def user_profile(request):
   }
     return render(request, 'pages/user.html', context)
 
-@login_required(login_url='/accounts/auth-signin')
 def tables(request):
     context = {
     'parent': 'pages',
@@ -91,7 +86,6 @@ def tables(request):
   }
     return render(request, 'pages/tables.html', context)
 
-@login_required(login_url='/accounts/auth-signin')
 def typography(request):
     context = {
     'parent': 'pages',
@@ -99,18 +93,9 @@ def typography(request):
   }
     return render(request, 'pages/typography.html', context)
 
-@login_required(login_url='/accounts/auth-signin')
 def rtl(request):
     context = {
     'parent': 'pages',
     'segment': 'rtl'
   }
     return render(request, 'pages/rtl.html', context)
-  
-@login_required(login_url='/accounts/auth-signin')
-def upgrade(request):
-    context = {
-    'parent': 'pages',
-    'segment': 'upgrade'
-  }
-    return render(request, 'pages/upgrade.html', context)
