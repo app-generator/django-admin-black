@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.0.18] 2025-04-12
+### Changes
+
+- Fix Page Titles
+- Added Canonical: [Black Dashboard](https://app-generator.dev/product/black-dashboard/)
+
 ## [1.0.17] 2025-04-12
 ### Changes
 
