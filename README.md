@@ -8,7 +8,7 @@ Modern template for **Django** built with **[Black Dashboard](https://app-genera
 
 <br />
 
-## **Features**
+## Features
 
 - [Black Dashboard](https://app-generator.dev/product/black-dashboard/) Design Integration
 - **Sections Covered**: 
@@ -19,50 +19,58 @@ Modern template for **Django** built with **[Black Dashboard](https://app-genera
   
 <br />
 
-## Pre-built Starters
+## [Black Dashboard](https://app-generator.dev/product/black-dashboard/) Starters
 
-### [Django Black Dashboard](https://app-generator.dev/product/black-dashboard/django/) `FREE`
+Pre-built starters for coding dashboards and services (APIs, DataTables) with speed.
+
+### [Django Black Dashboard](https://app-generator.dev/product/black-dashboard/django/)
 
 > The FREE Version (MIT License) - [Live Demo](https://django-black-dashboard.onrender.com).
 
-- Simple, Easy-to-Extend Codebase
-- [Black Dashboard](https://app-generator.dev/product/black-dashboard/) Design Integration
-- Dynamic Tables
-- Dynamic API
+- Simple, Easy-to-Extend codebase
+- [Black Dashboard](https://app-generator.dev/product/black-dashboard/) 
+- [Bootstrap](https://app-generator.dev/docs/templates/bootstrap.html) CSS Styling 
+- Dynamic Tables - read [docs](https://app-generator.dev/docs/developer-tools/dynamic-datatables.html)
+- Dynamic API - read [docs](https://app-generator.dev/docs/developer-tools/dynamic-api.html)
 - Charts
-- **CLI for Coding Tasks**
-  - `Commit/rollback Git Changes`
-  - `Backup & restore DB`
-  - `Interact with Django Core` via CLI
-  - `Update Environment variables`
-  - `Update Dependencies`
-- Bootstrap 5 Styling 
+- [Django CLI Package](https://app-generator.dev/docs/developer-tools/django-cli/index.html)
+    - [Commit/rollback Git Changes](https://app-generator.dev/docs/developer-tools/django-cli/git-interface.html)
+    - `Backup & restore DB`
+    - [Interact with Django Core](https://app-generator.dev/docs/developer-tools/django-cli/query-django.html)
+    - `Manage Environment`
+    - `Manage Dependencies`
 - Session-based Authentication, Password recovery
 - DB Persistence: SQLite (default), can be used with MySql, PgSql
 - Docker, CI/CD for Render
-- Vite for assets management 
+- [Vite](https://app-generator.dev/docs/technologies/vite/index.html) for assets management 
 
 ![Django Black Dashboard - Open-Source Django Starter ](https://user-images.githubusercontent.com/51070104/196730732-dda1794b-93ce-48cb-bc5c-182411495512.png)
 
 <br />
 
-### [Django Black Dashboard](https://app-generator.dev/product/black-dashboard-pro/django/) `PRO`
+### [Django Black Dashboard PRO](https://app-generator.dev/product/black-dashboard-pro/django/)
 
 > The premium version provides more features, priority on support, and is more often updated - [Live Demo](https://django-black-pro.onrender.com/).
 
 - Simple, Easy-to-Extend Codebase
-- [Black Dashboard](https://app-generator.dev/product/black-dashboard/) PRO Design Integration
+- [Black Dashboard](https://app-generator.dev/product/black-dashboard/) PRO Design Integration 
+- Bootstrap Styling 
+- Dynamic Tables - read [docs](https://app-generator.dev/docs/developer-tools/dynamic-datatables.html)
+- Dynamic API - read [docs](https://app-generator.dev/docs/developer-tools/dynamic-api.html)
+- Charts
 - Session-based Authentication, Password recovery
 - OAuth (GitHub & Google)
 - DB Persistence: SQLite (default), can be used with MySql, PgSql
-- Apps
-  - Charts
-  - Server-Side Datatables
-  - API via DRF
-  - Extended Users Profile
-  - Async Tasks (Celery)
-- Docker 
-- CI/CD integration for Render 
+- [Django CLI Package](https://app-generator.dev/docs/developer-tools/django-cli/index.html)
+    - [Commit/rollback Git Changes](https://app-generator.dev/docs/developer-tools/django-cli/git-interface.html)
+    - `Backup & restore DB`
+    - [Interact with Django Core](https://app-generator.dev/docs/developer-tools/django-cli/query-django.html)
+    - `Manage Environment`
+    - `Manage Dependencies`
+- Session-based Authentication, Password recovery
+- DB Persistence: SQLite (default), can be used with MySql, PgSql
+- Docker, CI/CD for Render
+- [Vite](https://app-generator.dev/docs/technologies/vite/index.html) for assets management 
 
 ![Django Black PRO - Premium Django starter built with Black Dashboard design from Creative-Tim](https://github.com/user-attachments/assets/63c1ea5b-6c8b-4e67-8e07-156c3e06895f)
 
@@ -89,4 +97,4 @@ Modern template for **Django** built with **[Black Dashboard](https://app-genera
 <br />
 
 ---
-**[Black Dashboard](https://app-generator.dev/product/black-dashboard/)** Django Integration - Library provided by **[App-Generator](https://app-generator.dev)**
+**[Black Dashboard](https://app-generator.dev/product/black-dashboard/)** Django Integration - Library provided by **[App-Generator](https://app-generator.dev)**.
